@@ -6,15 +6,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.demo1.IngredientController">
+<VBox alignment="CENTER" prefHeight="410.0" prefWidth="360.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.demo1.IngredientController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Enter Ingredient Details"/>
-    <TextField fx:id="nameField" promptText="Ingredient Name"/>
-    <TextField fx:id="quantityField" promptText="Quantity"/>
-    <TextField fx:id="unitField" promptText="Unit"/>
-    <Button text="Add Ingredient" onAction="#onAddIngredientClick"/>
+    <Label text="Enter Ingredient Details" />
+    <TextField fx:id="nameField" promptText="Ingredient Name" />
+    <TextField fx:id="quantityField" promptText="Quantity" />
+    <TextField fx:id="unitField" promptText="Unit" />
+    <Button onAction="#onAddIngredientClick" text="Add Ingredient" />
 </VBox>
