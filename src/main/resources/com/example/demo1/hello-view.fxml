@@ -5,14 +5,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="410.0" prefWidth="360.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.demo1.HelloController">
+<VBox alignment="CENTER" prefHeight="410.0" prefWidth="360.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.demo1.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label text="Welcome to the Ingredient Manager"/>
-    <Button text="Input Available Ingredients" onAction="#onInputIngredientsClick"/>
-    <Button text="Add Shopping Ingredients" onAction="#onAddShoppingIngredientsClick"/>
-    <Button text="Ask the Chatbot" onAction="#onAskChatbotClick"/>
+    <Label text="Welcome to the Ingredient Manager" />
+    <Button onAction="#onInputIngredientsClick" text="Input Available Ingredients" />
+    <Button onAction="#onAddShoppingIngredientsClick" text="Recipe" />
+    <Button onAction="#onAskChatbotClick" text="Ask the Chatbot" />
 </VBox>

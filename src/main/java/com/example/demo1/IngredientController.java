@@ -12,7 +12,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class IngredientController {
 
@@ -27,28 +29,56 @@ public class IngredientController {
 
     @FXML
     void onAddIngredientClick(ActionEvent event) {
-        String name = nameField.getText();
-        int quantity = Integer.parseInt(quantityField.getText());
-        String unit = unitField.getText();
+        try {
+            List<Ingredient> ingredients = JsonUtil.readIngredientsFromFile();
+            Ingredient ingredient = new Ingredient();
+            ingredient.setName(nameField.getText());
+            ingredient.setQuantity(Integer.parseInt(quantityField.getText()));
+            ingredient.setUnit(unitField.getText());
+            ingredients.add(ingredient);
+            JsonUtil.writeIngredientsToFile(ingredients);
 
+            writeIngredientToDatabase(ingredient);
+
+            navigateToPage(event, "hello-view.fxml");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeIngredientToDatabase(Ingredient ingredient) {
+        String selectSQL = "SELECT quantity FROM ingredients WHERE name = ?";
         String insertSQL = "INSERT INTO ingredients (name, quantity, unit) VALUES (?, ?, ?)";
+        String updateSQL = "UPDATE ingredients SET quantity = ?, unit = ? WHERE name = ?";
 
         try (Connection connection = DataBase.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(insertSQL)) {
+             PreparedStatement selectStmt = connection.prepareStatement(selectSQL);
+             PreparedStatement insertStmt = connection.prepareStatement(insertSQL);
+             PreparedStatement updateStmt = connection.prepareStatement(updateSQL)) {
 
-            preparedStatement.setString(1, name);
-            preparedStatement.setInt(2, quantity);
-            preparedStatement.setString(3, unit);
+            selectStmt.setString(1, ingredient.getName());
+            ResultSet resultSet = selectStmt.executeQuery();
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            System.out.println("Ingredient added: " + name + ", Quantity: " + quantity + ", Unit: " + unit);
-            System.out.println("Rows affected: " + rowsAffected);
+            if (resultSet.next()) {
+                // Ingredient exists, update it
+                int existingQuantity = resultSet.getInt("quantity");
+                int newQuantity = ingredient.getQuantity();
+                updateStmt.setInt(1, newQuantity);
+                updateStmt.setString(2, ingredient.getUnit());
+                updateStmt.setString(3, ingredient.getName());
+                updateStmt.executeUpdate();
+            } else {
+                // Ingredient does not exist, insert it
+                insertStmt.setString(1, ingredient.getName());
+                insertStmt.setInt(2, ingredient.getQuantity());
+                insertStmt.setString(3, ingredient.getUnit());
+                insertStmt.executeUpdate();
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            navigateToPage(event, "hello-view.fxml");
-
     }
 
     private void navigateToPage(ActionEvent actionEvent, String fxmlFile) {

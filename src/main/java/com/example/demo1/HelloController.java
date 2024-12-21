@@ -30,7 +30,7 @@ public class HelloController {
     }
 
     public void onAddShoppingIngredientsClick(ActionEvent actionEvent) {
-        navigateToPage(actionEvent, "add-shopping-ingredients-view.fxml");
+        navigateToPage(actionEvent, "recipe2.fxml");
     }
 
     private void navigateToPage(ActionEvent actionEvent, String fxmlFile) {

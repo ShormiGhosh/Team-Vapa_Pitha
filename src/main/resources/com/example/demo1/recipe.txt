@@ -1,0 +1,78 @@
+id: 1
+name: Spaghetti Carbonara
+taste: Savory
+reviews: 4.5
+cuisine type: Italian
+preparation time: 25
+
+id: 2
+name: Chicken Tikka Masala
+taste: Spicy
+reviews: 4.7
+cuisine type: Indian
+preparation time: 40 
+
+id: 3
+name: Sushi Roll
+taste: Umami
+reviews: 4.8
+cuisine type: Japanese
+preparation time: 60 
+
+id: 4
+name: Tacos al Pastor
+taste: Tangy and Spicy
+reviews: 4.6
+cuisine type: Mexican
+preparation time: 30 
+
+id: 5
+name: Pad Thai
+taste: Sweet and Savory
+reviews: 4.4
+cuisine type: Thai
+preparation time: 35 
+
+id: 6
+name: Chocolate Brownie
+taste: Sweet
+reviews: 4.9
+cuisine type: American
+preparation time: 45 
+
+id: 7
+name: Ratatouille
+taste: Earthy and Sweet
+reviews: 4.3
+cuisine type: French
+preparation time: 50
+
+id: 8
+name: Shawarma
+taste: Savory and Spicy
+reviews: 4.5
+cuisine type: Middle Eastern
+preparation time: 25 
+
+id: 9
+name: Pho
+taste: Savory and Aromatic
+reviews: 4.6
+cuisine type: Vietnamese
+preparation time: 60 
+
+id: 10
+name: Caesar Salad
+taste: Tangy and Creamy
+reviews: 4.2
+cuisine type: Italian-American
+preparation time: 20
+id: 11
+name: alu vaji
+taste: spicy
+reviews: 3.6
+cuisine type: bengali
+preparation time: 25
+
+
+

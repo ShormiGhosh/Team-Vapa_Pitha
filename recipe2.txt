@@ -1,0 +1,14 @@
+id: 11
+name: alu vaji
+taste: spicy
+reviews: 3.6
+cuisine type: bengali
+preparation time: 20
+
+id: 11
+name: alu vaji
+taste: spicy
+reviews: 3.6
+cuisine type: bengali
+preparation time: 20
+
